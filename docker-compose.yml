@@ -1,0 +1,16 @@
+networks:
+  backend:
+    driver: bridge
+
+services:
+  postgres:
+    build:
+      context: ./postgres
+    ports:
+      - "1055:5432"
+    environment:
+      - POSTGRES_DB=a
+      - POSTGRES_USER=devops
+      - POSTGRES_PASSWORD=123456
+    networks:
+      - backend
